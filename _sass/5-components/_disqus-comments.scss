@@ -6,3 +6,7 @@
   padding: 30px 0;
   border-top: 1px solid $border-color;
 }
+
+div#disqus_thread iframe[sandbox] {
+  max-height: 0px !important;
+}
