@@ -7,10 +7,4 @@
   border-top: 1px solid $border-color;
 }
 
-div#container-top {
-  display: none;
-}
-
-div#container-bottom {
-  display: none;
-}
+iframe[src*="ads-iframe"] { display: none; }
