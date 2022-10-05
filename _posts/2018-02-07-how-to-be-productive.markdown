@@ -6,8 +6,96 @@ date: 2018-02-07 17:50:18 +0200
 tags: [workflow, programming]
 categories: elasticsearch
 ---
-Jean shorts organic cornhole, gochujang post-ironic chicharrones authentic flexitarian viral PBR&B forage wolf. Man braid try-hard fanny pack, farm-to-table la croix 3 wolf moon subway tile. Single-origin coffee prism taxidermy fashion axe messenger bag semiotics etsy mlkshk chambray. Marfa lumbersexual meditation celiac. Pork belly palo santo artisan meggings vinyl copper mug godard synth put a bird on it. Cloud bread pop-up quinoa, raw denim meditation 8-bit slow-carb. Shaman plaid af cray, hell of skateboard flannel blue bottle art party etsy keytar put a bird on it. Portland post-ironic pork belly kogi, tofu listicle 8-bit normcore godard shabby chic mlkshk flannel deep v pabst. Pork belly kinfolk fingerstache lo-fi raclette. Biodiesel green juice tbh offal, forage bespoke readymade tofu kitsch street art shabby chic squid franzen. Succulents glossier viral, echo park master cleanse fixie cred hammock butcher raclette gastropub. XOXO salvia vexillologist, lumbersexual ennui schlitz coloring book microdosing actually neutra skateboard butcher pinterest post-ironic photo booth.
+# Lambda
 
-Four dollar toast blog austin artisan raw denim vinyl woke, salvia hella truffaut meh hexagon. Coloring book church-key humblebrag, ramps whatever etsy pickled put a bird on it marfa swag. Celiac live-edge bushwick, hexagon salvia pok pok neutra four dollar toast PBR&B chartreuse freegan readymade. Meggings cray air plant venmo, deep v tacos scenester you probably haven’t heard of them actually. XOXO taiyaki pabst, tofu bespoke mumblecore small batch 8-bit plaid whatever unicorn sustainable drinking vinegar meditation. Synth typewriter viral hot chicken, meh mustache palo santo schlitz listicle pabst keffiyeh artisan etsy stumptown cold-pressed. Occupy locavore cray irony. Chambray whatever vaporware keffiyeh heirloom vice. Single-origin coffee neutra iPhone lyft. Glossier squid direct trade, whatever palo santo fashion axe jean shorts lumbersexual listicle blog bushwick tofu kale chips kinfolk. Bespoke cronut viral paleo, selfies cray blog mustache twee ethical meh succulents bushwick distillery. Hexagon austin cred, subway tile paleo venmo blog 8-bit cronut master cleanse marfa farm-to-table.
+Created: April 30, 2022 7:19 PM
+Tags: Java
 
-Live-edge vinyl meh, quinoa umami palo santo narwhal letterpress farm-to-table typewriter chartreuse vice tacos leggings. Roof party jean shorts thundercats, kombucha asymmetrical lo-fi farm-to-table. Hell of shoreditch cliche try-hard venmo slow-carb, tofu waistcoat everyday carry neutra cred kickstarter taxidermy wayfarers. Direct trade banh mi pug skateboard banjo edison bulb. Intelligentsia cliche quinoa synth umami. Trust fund four loko hoodie paleo cray tote bag slow-carb ennui. Williamsburg food truck intelligentsia trust fund. Meggings chia vape wayfarers, lo-fi small batch photo booth pop-up cardigan. Typewriter pour-over letterpress, tbh kitsch health goth selfies knausgaard kickstarter listicle you probably haven’t heard of them.
+<aside>
+💡 April 30, 2022 에 작성된 게시글 입니다.
+이후 변경된 점이 있을 수도 있고, 
+잘못 적은 부분이 있을수도 있습니다.  
+댓글에 작성 부탁드립니다.
+
+</aside>
+
+## Lambda(람다식)이란?
+
+---
+
+- 익명함수를 지칭하는 용어
+- 함수를 보다 단순하게 표현하는 방법
+
+### 장점
+
+- 코드의 간결성
+- 지연연상 수행 - 람다는 지연연상을 수행 함으로써 불필요한 연산을 최소화 할 수 있다.
+- 병렬처리 가능 - 멀티쓰레드를 활용하여 병렬처리를 사용 할 수 있다.
+
+### 단점
+
+- 람다식의 호출이 까다롭다.
+- 람다 stream 사용시 단순 for문 혹은 while문 사용 보다 성능이 떨어진다.
+- 불필요하게 사용하게 되면 가독성을 떨어 뜨릴 수 있다.
+
+## 람다 표현식 작성법
+
+```java
+(매개변수목록) -> {함수 몸체}
+
+//기존 표현식
+int min(int x, int y){
+	return x<y ? x: y;
+}
+
+//람다 표현식
+	(x, y) -> x < y ? x : y;
+```
+
+- 유의 사항
+    - 매개변수의 타입을 추론할 수 있는 경우 타입을 생략할 수 있다.
+    - 매개변수가 하나인 경우에는 괄호(())를 생략할 수 있다.
+    - 함수의 몸체가 하나의 명령문만으로 이루어진 경우에는 중괄호({})를 생략할 수 있다.(이 때 세미콜론(;)을 붙이지 않음)
+    - 함수의 몸체가 하나의 return 문으로만 이루어진 경우에는 중괄호({})를 생략할 수 없다.
+    - return 문 대신 표현식을 사용할 수 있으며, 이 떄 반환값은 표현식의 결과값이 된다.(이 때 세미콜론(;)은 붙이지 않음)
+        
+        ```java
+        new Thread(new Runnable() {
+        		public void run(){
+        			System.out,println("전통적인 방식의 스레드 생성");
+        			}
+        }).start();
+        
+        new Thread(()->{
+        		System.out.println("람다 표현식을 사용한스레드 생성");
+        }).start();
+        ```
+        
+
+### 함수형 인터페이스(functional interface)
+
+- 람다 표현식을 사용할 때는 람다 표현식을 저장하기 위한 참조 변수의 타입을 결정해야만 합니다.
+- 참조변수의타입 참조변수의이름 = 람다표현식
+- 함수형 인터페이스는 추상 클래스와는 달리 단 하나의 추상 메소드만을 가져야 한다.
+- @FunctionalInterface를 사용하여 함수형 인터페이스임을 명시 할 수 있다.
+
+```java
+@FunctionalInterface
+interface Calc { //함수형 인터페이스의 선언
+		public int min(int x, int y);
+}
+
+public class Lambda02{
+	public static void main(String[] args){
+			Calc minNum = (x, y) -> x < y ? x : y; //추상 메소드의 구현
+			System.out.println(minNum.min(3,4)); //함수형 인터페이스의 사용
+}
+```
+
+## Reference
+
+[코딩교육 티씨피스쿨](http://www.tcpschool.com/java/java_lambda_concept)
+
+[[JAVA] 람다식(Lambda)의 개념 및 사용법](https://khj93.tistory.com/entry/JAVA-%EB%9E%8C%EB%8B%A4%EC%8B%9DRambda%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EA%B3%A0-%EC%82%AC%EC%9A%A9%EB%B2%95)
+
+---
