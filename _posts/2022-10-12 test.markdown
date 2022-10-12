@@ -1,3 +1,12 @@
+---
+layout: post
+title: Lambda
+image: 8.jpg
+date: 2018-03-02 13:35:20 +0200
+tags:
+categories: elasticsearch
+---
+
 #### Bear 테스트 입니다.
 
 Spring을 어떻게 해봐야 할지 테스트 해보는 겁니다.
