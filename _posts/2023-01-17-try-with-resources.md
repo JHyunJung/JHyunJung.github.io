@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Notion Test
-image: download.png
+image: download.jpg
 date: 2023-01-17 13:35:20 +0200
 tags:
 categories: book
