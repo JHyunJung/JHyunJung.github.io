@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Where I rest after work
-image: 3.jpg
+image: effective-java.jpg
 date: 2018-02-07 18:23:20 +0200
 tags: [rest, work]
 categories: spring
